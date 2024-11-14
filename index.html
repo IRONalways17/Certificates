@@ -34,7 +34,36 @@
             margin-bottom: 30px;
             color: #dcdcdc;
         }
-        
+
+        /* Profile Image Styling */
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid #f0f0f0;
+        }
+
+        /* Typewriter Text */
+        .typewriter {
+            font-size: 1.5rem;
+            color: #ffde59;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #ffde59;
+            animation: typing 3s steps(30, end), blink 0.5s step-end infinite alternate;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: #ffde59; }
+        }
+
         /* Certificate List Styling */
         ul {
             list-style-type: none;
@@ -86,6 +115,9 @@
 </head>
 <body>
     <h1>My Portfolio</h1>
+    <img src="me.png" alt="My Picture" class="profile-pic">
+    <div class="typewriter" id="typewriter"></div>
+    
     <p class="intro">Welcome to my portfolio! Here, you'll find all my certificates and achievements.</p>
     
     <ul>
@@ -117,8 +149,26 @@
         <li><a href="Stanford machine learning certif.pdf" target="_blank">Certificate 26</a></li>
         <li><a href="VFX.pdf" target="_blank">Certificate 27</a></li>
         <li><a href="meta frontend pro.pdf" target="_blank">Certificate 28</a></li>
+
     </ul>
     
-    <button class="btn-resume" onclick="window.location.href='resume.pdf'">Download My Resume</button>
+    <button class="btn-resume" onclick="window.location.href='Intern_Trainee 17.pdf'">Download My Resume</button>
+
+    <script>
+        const text = "Hi There! 👻 It's Me - The Nerd You are Looking For 😁";
+        let index = 0;
+
+        function typeEffect() {
+            const typewriterElement = document.getElementById("typewriter");
+            typewriterElement.textContent = text.substring(0, index);
+
+            index++;
+            if (index > text.length) {
+                index = 0;  // Reset to create a loop
+            }
+        }
+
+        setInterval(typeEffect, 100);  // Adjust speed by changing interval
+    </script>
 </body>
 </html>
